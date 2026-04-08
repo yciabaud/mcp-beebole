@@ -28,7 +28,7 @@ Enable an AI assistant to list your active projects, view your time entries, and
 ## Configuration (Environment Variables)
 Authentication relies on a personal Beebole API token.
 
-- `BEEBOLE_API_TOKEN`: Your API token (found in **Beebole > Settings > Account**).
+- `BEEBOLE_API_TOKEN`: Your API token that you can retrieve from Beebole using the API Token module on your home screen.
 
 ---
 
