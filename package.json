@@ -38,13 +38,25 @@
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
       "@semantic-release/github",
-      ["@semantic-release/npm", { "npmPublish": false }],
-      ["@semantic-release/git", {
-        "assets": ["package.json", "package-lock.json", "CHANGELOG.md"],
-        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-      }]
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "package-lock.json",
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
     ]
-    },
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.6.0",
     "axios": "^1.8.1",
@@ -52,6 +64,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
@@ -64,6 +77,7 @@
     "eslint": "^10.2.0",
     "semantic-release": "^24.2.9",
     "typescript": "^5.9.3",
+    "typescript-eslint": "^8.58.1",
     "vitest": "^4.1.3"
   }
 }
