@@ -21,7 +21,8 @@
   "main": "build/index.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "clean": "rm -rf build",
+    "build": "npm run clean && tsc",
     "lint": "eslint src/**/*.ts",
     "test": "vitest run",
     "start": "node build/index.js",
