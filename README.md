@@ -52,12 +52,52 @@ Add the following configuration to your `claude_desktop_config.json` file (typic
 
 ## Usage with Gemini CLI
 
-In your Gemini CLI workspace, you can add it to your tools:
+You can add this server to your Gemini CLI workspace using the following command:
 
 ```bash
-# Example local configuration or via environment variables
-export BEEBOLE_API_TOKEN=your_token_here
+gemini mcp add beebole node /path/to/mcp-beebole/build/index.js -e BEEBOLE_API_TOKEN=$BEEBOLE_API_TOKEN
 ```
+
+Alternatively, you can manually add it to your `~/.gemini/settings.json` (global) or `.gemini/settings.json` (project-specific) file:
+
+```json
+{
+  "mcpServers": {
+    "beebole": {
+      "command": "node",
+      "args": ["/path/to/mcp-beebole/build/index.js"],
+      "env": {
+        "BEEBOLE_API_TOKEN": "$BEEBOLE_API_TOKEN"
+      }
+    }
+  }
+}
+```
+
+> **Note:** Gemini CLI automatically expands environment variables starting with `$`. Make sure `BEEBOLE_API_TOKEN` is set in your shell or replace it with your actual token.
+
+---
+
+## Usage Examples
+
+Here are some ways you can interact with Beebole through your AI assistant:
+
+### 1. Discovering your projects
+**Prompt:** "What are my active projects in Beebole?"  
+**Assistant Action:** Calls `list_my_projects`.  
+**Result:** Displays a list of projects, subprojects, and tasks with their respective IDs.
+
+### 2. Logging time
+**Prompt:** "Log 7.5 hours on the 'Development' project for today with the comment 'Working on the MCP server'."  
+**Assistant Action:** 
+1. Calls `list_my_projects` to find the ID for "Development".
+2. Calls `create_time_entry` with today's date, the resolved project ID, `7.5` hours, and the provided comment.  
+**Result:** Confirmation that the entry was created or updated in Beebole.
+
+### 3. Checking your timesheet
+**Prompt:** "Show me my time entries for this week."  
+**Assistant Action:** Calculates the dates for the current week and calls `get_time_entries`.  
+**Result:** A summary table of all hours logged for each day of the week.
 
 ---
 
