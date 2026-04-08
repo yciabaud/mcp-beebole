@@ -124,5 +124,18 @@ The project uses `vitest` for unit tests:
 npm test
 ```
 
+## Troubleshooting
+
+### 401 Unauthorized
+Ensure your `BEEBOLE_API_TOKEN` is correct. You can find it in **Beebole > Settings > Account**.
+
+### Project/Task not found
+If the assistant cannot find a project, try calling `list_my_projects` first. Only active projects and tasks are returned by the API.
+
+### Connection issues in Claude Desktop
+- Check the logs in Claude Desktop (often located in `~/Library/Logs/Claude/mcp.log` on macOS).
+- Ensure `node` is in your system PATH and accessible by the Claude app.
+- Make sure you ran `npm run build` to generate the `build/` folder.
+
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
