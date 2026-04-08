@@ -1,0 +1,46 @@
+{
+  "name": "mcp-beebole",
+  "version": "1.0.0",
+  "description": "MCP server for Beebole time tracking",
+  "author": "yciabaud",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yciabaud/mcp-beebole.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yciabaud/mcp-beebole/issues"
+  },
+  "homepage": "https://github.com/yciabaud/mcp-beebole#readme",
+  "keywords": [
+    "mcp",
+    "beebole",
+    "time-tracking",
+    "model-context-protocol"
+  ],
+  "main": "build/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src/**/*.ts",
+    "test": "vitest run",
+    "start": "node build/index.js",
+    "dev": "tsc --watch",
+    "preinspect": "npm run build",
+    "inspect": "npx @modelcontextprotocol/inspector node build/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.6.0",
+    "axios": "^1.8.1",
+    "dotenv": "^16.4.7",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.17",
+    "@typescript-eslint/eslint-plugin": "^8.58.1",
+    "@typescript-eslint/parser": "^8.58.1",
+    "eslint": "^10.2.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.3"
+  }
+}
