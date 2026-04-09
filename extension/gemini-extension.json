@@ -1,0 +1,19 @@
+{
+  "name": "beebole",
+  "version": "1.0.0",
+  "description": "Beebole time tracking extension",
+  "mcpServers": {
+    "beebole": {
+      "command": "node",
+      "args": ["${extensionPath}/../build/index.js"]
+    }
+  },
+  "settings": [
+    {
+      "name": "Beebole API Token",
+      "description": "Your Beebole API token (found in Beebole using the API Token module on your home screen)",
+      "envVar": "BEEBOLE_API_TOKEN",
+      "sensitive": true
+    }
+  ]
+}

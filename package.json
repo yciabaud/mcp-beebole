@@ -28,7 +28,8 @@
     "start": "node build/index.js",
     "dev": "tsc --watch",
     "preinspect": "npm run build",
-    "inspect": "npx @modelcontextprotocol/inspector node build/index.js"
+    "inspect": "npx @modelcontextprotocol/inspector node build/index.js",
+    "package-extension": "./package-extension.sh"
   },
   "release": {
     "branches": [
@@ -38,7 +39,17 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
-      "@semantic-release/github",
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "beebole-extension.zip",
+              "label": "Beebole Gemini CLI Extension"
+            }
+          ]
+        }
+      ],
       [
         "@semantic-release/npm",
         {
@@ -73,6 +84,7 @@
     "@semantic-release/npm": "^13.1.5",
     "@semantic-release/release-notes-generator": "^14.1.0",
     "@types/node": "^25.5.2",
+    "@vercel/ncc": "^0.38.4",
     "eslint": "^10.2.0",
     "semantic-release": "^25.0.3",
     "typescript": "^6.0.2",

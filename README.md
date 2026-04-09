@@ -52,33 +52,30 @@ Add the following configuration to your `claude_desktop_config.json` file (typic
 
 ## Usage with Gemini CLI
 
-You can add this server to your Gemini CLI workspace using the following command:
+There are two ways to use Beebole with Gemini CLI:
+
+### Option 1: Gemini CLI Extension (Recommended)
+This is the easiest way. It includes the MCP server and a specialized `@beebole` subagent.
+
+1.  **Download**: Get `beebole-extension.zip` from the [latest GitHub release](https://github.com/yciabaud/mcp-beebole/releases).
+2.  **Extract**: Unzip the archive to a directory of your choice.
+3.  **Link**: Run the following command inside the extracted directory:
+    ```bash
+    gemini extensions link .
+    ```
+4.  **Configure**: Run `gemini settings` to enter your `BEEBOLE_API_TOKEN`.
+
+### Option 2: Standalone MCP Server
+If you prefer to add the MCP server manually to your workspace:
 
 ```bash
 gemini mcp add beebole node /path/to/mcp-beebole/build/index.js -e BEEBOLE_API_TOKEN=$BEEBOLE_API_TOKEN
 ```
 
-Alternatively, you can manually add it to your `~/.gemini/settings.json` (global) or `.gemini/settings.json` (project-specific) file:
-
-```json
-{
-  "mcpServers": {
-    "beebole": {
-      "command": "node",
-      "args": ["/path/to/mcp-beebole/build/index.js"],
-      "env": {
-        "BEEBOLE_API_TOKEN": "$BEEBOLE_API_TOKEN"
-      }
-    }
-  }
-}
-```
-
-> **Note:** Gemini CLI automatically expands environment variables starting with `$`. Make sure `BEEBOLE_API_TOKEN` is set in your shell or replace it with your actual token.
-
 ---
 
-## Usage Examples
+## Usage with Claude Desktop
+
 
 Here are some ways you can interact with Beebole through your AI assistant:
 
