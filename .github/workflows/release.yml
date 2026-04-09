@@ -40,6 +40,9 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Package extension
+        run: npm run package-extension
+
       - name: Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         env:
